@@ -3,14 +3,14 @@
 /**
  * Clase para la validación de tablas en la web.
  */
-class Informacion {
+class Gestion {
 
     private $conexion;
     public $mensajes;
     public function __construct($host, $user, $password, $database , $charset)
     {
         // Normalmente a esta variable se le llama $dsn (Data Source Name / Nombre de origen de datos)
-//        acceder sin seleccionar bd
+        // acceder sin seleccionar bd
         $dsn = "mysql:host=$host;dbname=$database;charset=$charset";
         try {
             // Establecemos la conexión mediante PDO

@@ -10,7 +10,7 @@ CREATE TABLE Admin (
 ) ENGINE=InnoDB CHARSET=utf8mb4;
 
 INSERT INTO Admin (id,correo,pasw,nombre,perfil) VALUES
-(1,'correo1@gmailcom','1234','admin',0),
-(2,'correo2@gmailcom','1234','usuario1',1),
-(3,'correo3@gmailcom','1234','usuario2',2),
-(4,'correo4@gmailcom','1234','usuario3',3)
+(1,'correo1@gmail.com','1234','admin',0),
+(2,'correo2@gmail.com','1234','usuario1',1),
+(3,'correo3@gmail.com','1234','usuario2',2),
+(4,'correo4@gmail.com','1234','usuario3',3)
