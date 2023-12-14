@@ -24,7 +24,6 @@ if(method_exists($controller,$_GET["action"])) $dataToView["data"] = $controller
 
 
 /* Load views*/
-session_start(); 
 require_once 'views/templates/header.html';
 require_once 'views/'.$controller->view.'.php';
 require_once 'views/templates/footer.html';
