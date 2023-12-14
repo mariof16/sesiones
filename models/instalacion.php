@@ -3,7 +3,7 @@
 /**
  * Clase para la validación de tablas en la web.
  */
-class Gestion {
+class Instalacion {
 
     private $conexion;
     public $mensajes;
@@ -20,5 +20,22 @@ class Gestion {
         } catch (PDOException $e) {
             $this->mensajes = 'Error de conexión: ' . $e->getMessage();
         }
+    }
+    public function comprobarInstalacion(){
+        $query = "SELECT id FROM AdminV2 WHERE perfil = '0'";
+        $resultado = $this->conexion->query($query);
+        if ($resultado->rowCount() < 1) {
+            $fila = $resultado->fetch(PDO::FETCH_ASSOC);
+            return false;
+        }
+        return true;
+    }
+    public function crearAdmin() {
+        $contra = password_hash($_POST['password'],PASSWORD_DEFAULT);
+        $correo = $_POST['correo'];
+        $nombre = $_POST['nombre'];
+        $query = "INSERT INTO AdminV2 (correo,pasw,nombre,perfil) VALUES ('".$correo."','".$contra."','".$nombre."',0)";
+        $resultado = $this->conexion->query($query);
+        $this->conexion = null;
     }
 } 

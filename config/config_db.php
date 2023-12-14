@@ -5,5 +5,5 @@ define('PASSWORD', '{Nv2iujO@W@H'); // Contraseña de MySQL
 define('DATABASE', 'user2daw_BD2-06'); //Nombre de la base de datos
 define('CHARSET','utf8mb4');
 
-define('DEFAULT_CONTROLLER', 'iniciosesion');
-define('DEFAULT_ACTION', 'mostrarinicio');
+define('DEFAULT_CONTROLLER', 'instalacion');
+define('DEFAULT_ACTION', 'mostrarinstalacion');

@@ -3,6 +3,7 @@
 require_once 'config/config_db.php';
 require_once 'models/iniciosesion.php';
 require_once 'models/gestion.php';
+require_once 'models/instalacion.php';
 
 if(!isset($_GET["controller"])) $_GET["controller"] = constant("DEFAULT_CONTROLLER");
 if(!isset($_GET["action"])) $_GET["action"] = constant("DEFAULT_ACTION");
