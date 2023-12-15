@@ -18,7 +18,8 @@ class ControladorIniciosesion {
                 $_SESSION['correo'] = $_POST['correo'];
                 $_SESSION['perfil'] = $perfil;
 
-                header("Location: index.php?action=mostrargestion&controller=gestion");
+                if($perfil ==0)
+                    header("Location: index.php?action=mostrargestion&controller=gestion");
 
                 exit();
             } else {

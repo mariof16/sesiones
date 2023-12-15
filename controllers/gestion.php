@@ -6,6 +6,7 @@ class ControladorGestion {
         $this->objGestion = new Gestion(HOST,USER,PASSWORD,DATABASE, CHARSET);
     }
     public function mostrarGestion(){
-         $this->view='gestion';
+        
+        $this->view='gestion';
     }
 }

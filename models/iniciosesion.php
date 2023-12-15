@@ -14,11 +14,13 @@ class Iniciosesion {
         }
     }
     public function iniciarSesion($correo, $password) {
-        $query = "SELECT perfil FROM Admin WHERE correo = '$correo' AND pasw = '$password'";
+        $query = "SELECT perfil,pasw FROM AdminV2 WHERE correo = '$correo'";
         $resultado = $this->conexion->query($query);
-    
-        if ($resultado->rowCount() > 0) {
-            $fila = $resultado->fetch(PDO::FETCH_ASSOC);
+
+        $fila = $resultado->fetch(PDO::FETCH_ASSOC);
+        
+        if ($resultado->rowCount() > 0 && password_verify('1234',$fila['pasw'])) {
+          
             $perfil = $fila['perfil'];
     
             return $perfil;

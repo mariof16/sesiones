@@ -22,6 +22,21 @@ class Instalacion {
         }
     }
     public function comprobarInstalacion(){
+        $query= "SHOW TABLES LIKE 'AdminV2';";
+        $resultado = $this->conexion->query($query);
+        if(!$resultado->rowCount() > 0)
+        {
+            $query="USE `user2daw_BD2-06`;
+            CREATE TABLE AdminV2 (
+                id INT AUTO_INCREMENT NOT NULL ,
+                correo VARCHAR(40) NOT NULL,
+                pasw VARCHAR(255) NOT NULL,
+                nombre VARCHAR(20) NOT NULL,
+                perfil TINYINT NOT NULL,
+                PRIMARY KEY (id)
+            ) ENGINE=InnoDB CHARSET=utf8mb4";
+            $this->conexion->query($query);
+        }
         $query = "SELECT id FROM AdminV2 WHERE perfil = '0'";
         $resultado = $this->conexion->query($query);
         if ($resultado->rowCount() < 1) {
@@ -31,11 +46,16 @@ class Instalacion {
         return true;
     }
     public function crearAdmin() {
-        $contra = password_hash($_POST['password'],PASSWORD_DEFAULT);
-        $correo = $_POST['correo'];
-        $nombre = $_POST['nombre'];
-        $query = "INSERT INTO AdminV2 (correo,pasw,nombre,perfil) VALUES ('".$correo."','".$contra."','".$nombre."',0)";
+        $query = "SELECT id FROM AdminV2 WHERE perfil = '0'";
         $resultado = $this->conexion->query($query);
-        $this->conexion = null;
+        if($resultado->rowCount() < 1)
+        {
+            $contra = password_hash($_POST['password'],PASSWORD_DEFAULT);
+            $correo = $_POST['correo'];
+            $nombre = $_POST['nombre'];
+            $query = "INSERT INTO AdminV2 (correo,pasw,nombre,perfil) VALUES ('".$correo."','".$contra."','".$nombre."',0)";
+            $resultado = $this->conexion->query($query);
+            $this->conexion = null;
+        }
     }
 } 
