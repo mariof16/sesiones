@@ -20,7 +20,6 @@ class ControladorIniciosesion {
 
                 if($perfil ==0)
                     header("Location: index.php?action=mostrargestion&controller=gestion");
-
                 exit();
             } else {
                 echo "Credenciales incorrectas";
